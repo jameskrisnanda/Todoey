@@ -10,16 +10,20 @@ import UIKit
 
 class ToDoListViewController: UITableViewController {
     
+    let defaults = UserDefaults.standard
     var itemArray = [
         "Find james", "check writing", "drawing face"
-        
-        
+   
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let items = defaults.array(forKey: "ToDoListArray") as? [String]{
+            itemArray = items
+        }
     }
+    
     //MARK : Tableviewdatasource
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,6 +33,7 @@ class ToDoListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
         cell.textLabel?.text = itemArray[indexPath.row]
+        
         return cell
     }
     
@@ -54,6 +59,9 @@ class ToDoListViewController: UITableViewController {
         let actionLeft = UIAlertAction(title: "add item", style: .default) { (actionLeft) in
 //            what will happen once the user clicks the add item on our UIAlert
            self.itemArray.append(textField.text!)
+            
+            self.defaults.set(self.itemArray, forKey: "ToDoListArray")
+            
             self.tableView.reloadData()
             
         }
