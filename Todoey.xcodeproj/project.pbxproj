@@ -48,7 +48,7 @@
 		0FD86CEE218ECC08002417E9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0FFD6D17218C79B40013AA4D /* ToDoListViewController.swift */,
+				0FFD6D19218C79B40013AA4D /* Main.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -56,7 +56,7 @@
 		0FD86CEF218ECC28002417E9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0FFD6D19218C79B40013AA4D /* Main.storyboard */,
+				0FFD6D17218C79B40013AA4D /* ToDoListViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
